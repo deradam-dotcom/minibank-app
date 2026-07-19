@@ -8,6 +8,7 @@ The focus is on code quality, architecture, correctness, and development practic
 
 - **React** (function components) + **TypeScript** (strict)
 - **Vite** as build/dev tooling
+- **SCSS** (Sass) for styling — global design tokens
 - **Vitest** for tests
 - **ESLint** + **Prettier** for linting and formatting
 - **pnpm** as package manager
@@ -38,9 +39,15 @@ pnpm test          # run the test suite (Vitest)
 
 ```
 src/
-├─ App.tsx        # root component
-├─ main.tsx       # entry point
-└─ index.css      # global styles (temporary — replaced by SCSS later)
+├─ domain/               # pure, framework-independent banking logic (unit-testable)
+│  ├─ account.types.ts   # Account discriminated union (normal | savings)
+│  └─ account.rules.ts   # overdraft limits, welcome bonus, canDebit
+├─ styles/
+│  └─ global.scss        # design tokens (CSS custom properties) + reset + base typography
+├─ App.tsx               # root component
+└─ main.tsx              # entry point
 ```
+
+The `domain/`folder is holding the banking rules, it can be unit-tested in isolation.
 
 The `@/` path alias points to `src/` (configured in `vite.config.ts` and `tsconfig.app.json`).
