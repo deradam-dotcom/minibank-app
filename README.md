@@ -41,7 +41,9 @@ pnpm test          # run the test suite (Vitest)
 src/
 ├─ domain/               # pure, framework-independent banking logic (unit-testable)
 │  ├─ account.types.ts   # Account discriminated union (normal | savings)
-│  └─ account.rules.ts   # overdraft limits, welcome bonus, canDebit
+│  ├─ account.rules.ts   # overdraft limits, welcome bonus, canDebit
+│  ├─ operations.ts      # create / deposit / withdraw / transfer (pure, immutable)
+│  └─ __tests__/         # Vitest domain tests + BRIEF use-case scenario
 ├─ styles/
 │  └─ global.scss        # design tokens (CSS custom properties) + reset + base typography
 ├─ App.tsx               # root component

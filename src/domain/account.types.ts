@@ -16,3 +16,6 @@ export type SavingsAccount = BaseAccount & {
 }
 
 export type Account = NormalAccount | SavingsAccount
+
+export type CreateAccountInput =
+  Omit<NormalAccount, 'amount'> | Omit<SavingsAccount, 'amount'>
