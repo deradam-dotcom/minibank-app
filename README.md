@@ -8,7 +8,9 @@ The focus is on code quality, architecture, correctness, and development practic
 
 - **React** (function components) + **TypeScript** (strict)
 - **Vite** as build/dev tooling
-- **SCSS** (Sass) for styling — global design tokens
+- **React Context** + `useState` for state (a single `useAccounts` hook)
+- **React Router** for navigation
+- **SCSS** (Sass) for styling — global design tokens + SCSS Modules
 - **Vitest** for tests
 - **ESLint** + **Prettier** for linting and formatting
 - **pnpm** as package manager
@@ -44,10 +46,18 @@ src/
 │  ├─ account.rules.ts   # overdraft limits, welcome bonus, canDebit
 │  ├─ operations.ts      # create / deposit / withdraw / transfer (pure, immutable)
 │  └─ __tests__/         # Vitest domain tests + BRIEF use-case scenario
+├─ contexts/
+│  └─ AccountsContext/   # context + provider + useAccounts hook (in-memory store)
+├─ components/
+│  ├─ ui/                # generic primitives (Field, Button, LiveMessage)
+│  └─ shared/            # app-specific shared building blocks (Nav)
+├─ layout/
+│  └─ MainLayout.tsx     # header/main/footer shell + route-change focus (a11y)
+├─ pages/                # route-level components (NotFoundPage)
 ├─ styles/
 │  └─ global.scss        # design tokens (CSS custom properties) + reset + base typography
-├─ App.tsx               # root component
-└─ main.tsx              # entry point
+├─ App.tsx               # router configuration (layout route + redirect + 404)
+└─ main.tsx              # entry point (providers + BrowserRouter)
 ```
 
 The `domain/`folder is holding the banking rules, it can be unit-tested in isolation.

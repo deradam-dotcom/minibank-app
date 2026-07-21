@@ -1,0 +1,23 @@
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: var(--space-4);
+}
+
+.link {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.link:hover {
+  color: var(--color-primary);
+}
+
+.link[aria-current='page'] {
+  color: var(--color-primary);
+  font-weight: 700;
+  text-decoration: underline;
+}
