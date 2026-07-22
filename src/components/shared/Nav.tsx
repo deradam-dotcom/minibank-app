@@ -10,7 +10,7 @@ const links = [
 ]
 
 const Nav = () => (
-  <nav className={styles.nav}>
+  <nav className={styles.nav} aria-label="Main">
     {links.map(({ to, label }) => (
       <NavLink key={to} to={to} className={styles.link}>
         {label}

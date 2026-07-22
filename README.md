@@ -48,12 +48,17 @@ src/
 │  └─ __tests__/         # Vitest domain tests + BRIEF use-case scenario
 ├─ contexts/
 │  └─ AccountsContext/   # context + provider + useAccounts hook (in-memory store)
+├─ features/             # feature-level components (form + list + colocated styles)
+│  ├─ account-list/      # AccountList (table + empty state)
+│  └─ create-account/    # CreateAccountForm
 ├─ components/
 │  ├─ ui/                # generic primitives (Field, Button, LiveMessage)
-│  └─ shared/            # app-specific shared building blocks (Nav)
+│  └─ shared/            # app-specific shared building blocks (Nav, AccountSelect)
 ├─ layout/
 │  └─ MainLayout.tsx     # header/main/footer shell + route-change focus (a11y)
-├─ pages/                # route-level components (NotFoundPage)
+├─ pages/                # route-level components (AccountsPage, CreateAccountPage, NotFoundPage)
+├─ utils/
+│  └─ money.ts           # money helpers (formatEUR, toCents) — balances stored in integer cents
 ├─ styles/
 │  └─ global.scss        # design tokens (CSS custom properties) + reset + base typography
 ├─ App.tsx               # router configuration (layout route + redirect + 404)

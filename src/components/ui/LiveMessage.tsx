@@ -5,17 +5,13 @@ type Props = {
   variant?: 'success' | 'error'
 }
 
-const LiveMessage = ({ message, variant = 'success' }: Props) => {
-  if (!message) return null
-
-  return (
-    <p
-      role={variant === 'error' ? 'alert' : 'status'}
-      className={variant === 'error' ? styles.error : styles.success}
-    >
-      {message}
-    </p>
-  )
-}
+const LiveMessage = ({ message, variant = 'success' }: Props) => (
+  <p
+    role={variant === 'error' ? 'alert' : 'status'}
+    className={message ? styles[variant] : undefined}
+  >
+    {message}
+  </p>
+)
 
 export default LiveMessage

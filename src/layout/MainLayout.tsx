@@ -1,15 +1,18 @@
 import { useEffect, useRef } from 'react'
-import { Outlet, useLocation } from 'react-router-dom'
+import { Outlet, useLocation, useNavigationType } from 'react-router-dom'
 import Nav from '@/components/shared/Nav'
 import styles from './MainLayout.module.scss'
 
 const MainLayout = () => {
   const location = useLocation()
+  const navigationType = useNavigationType()
   const mainRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    mainRef.current?.focus()
-  }, [location.pathname])
+    if (navigationType === 'PUSH') {
+      mainRef.current?.focus()
+    }
+  }, [location.pathname, navigationType])
 
   return (
     <>
