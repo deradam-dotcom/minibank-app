@@ -4,6 +4,8 @@ import Button from '@/components/ui/Button'
 import LiveMessage from '@/components/ui/LiveMessage'
 import useAccounts from '@/contexts/AccountsContext/useAccounts'
 import type { AccountType } from '@/domain/account.types'
+import { WELCOME_BONUS_NORMAL } from '@/domain/account.rules'
+import { formatEUR } from '@/utils/money'
 
 type Feedback = { text: string; variant: 'success' | 'error' }
 
@@ -32,7 +34,10 @@ const CreateAccountForm = () => {
         })
       }
       setFeedback({
-        text: `Account ${accountNumber} created.`,
+        text:
+          type === 'normal'
+            ? `Account ${accountNumber} created for ${userName} with a ${formatEUR(WELCOME_BONUS_NORMAL)} welcome bonus.`
+            : `Account ${accountNumber} created for ${userName}.`,
         variant: 'success',
       })
       setAccountNumber('')
