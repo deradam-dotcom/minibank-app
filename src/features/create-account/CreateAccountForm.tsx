@@ -4,7 +4,6 @@ import Button from '@/components/ui/Button'
 import LiveMessage from '@/components/ui/LiveMessage'
 import useAccounts from '@/contexts/AccountsContext/useAccounts'
 import type { AccountType } from '@/domain/account.types'
-import styles from './CreateAccountForm.module.scss'
 
 type Feedback = { text: string; variant: 'success' | 'error' }
 
@@ -48,7 +47,7 @@ const CreateAccountForm = () => {
   }
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <Field
         id="accountNumber"
         label="Account number"
@@ -63,13 +62,10 @@ const CreateAccountForm = () => {
         onChange={(event) => setUserName(event.target.value)}
         required
       />
-      <div className={styles.field}>
-        <label htmlFor="type" className={styles.label}>
-          Type
-        </label>
+      <div>
+        <label htmlFor="type">Type</label>
         <select
           id="type"
-          className={styles.select}
           value={type}
           onChange={(event) => setType(event.target.value as AccountType)}
         >

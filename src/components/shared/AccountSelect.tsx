@@ -1,5 +1,4 @@
 import useAccounts from '@/contexts/AccountsContext/useAccounts'
-import styles from './AccountSelect.module.scss'
 
 type Props = {
   id: string
@@ -12,15 +11,13 @@ const AccountSelect = ({ id, label, value, onChange }: Props) => {
   const { accounts } = useAccounts()
 
   return (
-    <div className={styles.field}>
-      <label htmlFor={id} className={styles.label}>
-        {label}
-      </label>
+    <div>
+      <label htmlFor={id}>{label}</label>
       <select
         id={id}
-        className={styles.select}
         value={value}
         onChange={(event) => onChange(event.target.value)}
+        required
       >
         <option value="">Select an account</option>
         {accounts.map((account) => (

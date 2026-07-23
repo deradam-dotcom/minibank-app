@@ -1,7 +1,8 @@
 .nav {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-4);
+  justify-content: center;
+  gap: var(--space-5);
   max-width: var(--container-width);
   margin: 0 auto;
   padding: var(--space-4);
